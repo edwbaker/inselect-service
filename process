@@ -1,0 +1,9 @@
+#!/bin/sh
+cd ~/autolighttrap
+~/inselect/ingest . ./docs
+~/inselect/segment ./docs
+~/inselect/save_crops ./docs
+chmod -R 777 docs/*
+find . -name "*.jpg" -size -5k -delete
+mv  docs/*_crops done
+rm docs/*
